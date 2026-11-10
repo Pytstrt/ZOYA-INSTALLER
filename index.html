@@ -305,7 +305,7 @@
                     </div>
                     <span class="pill">Version 2.0</span>
                 </div>
-                <a class="btn-main js-download" data-package="standard" href="#downloads">Download Zoya for Windows</a>
+                <a class="btn-main" href="#downloads">Download Zoya for Windows</a>
                 <div class="meta-text">
                     <span>Free for personal use</span>
                     <span>Installer ~51 MB · downloads 1.5–2 GB during setup</span>
@@ -519,9 +519,9 @@
         </div>
 
         <div class="pkg-grid">
-            <div class="pkg best">
+            <div class="pkg">
                 <h3>Standard</h3>
-                <div class="tag">Best for most people</div>
+                <div class="tag">Smaller download, needs internet</div>
                 <ul>
                     <li>All of Zoya's features</li>
                     <li>Python and every package, installed for you</li>
@@ -532,8 +532,8 @@
                 <p class="sha" data-sha="standard"></p>
                 <p class="soon" data-soon="standard">Download link coming soon.</p>
             </div>
-            <div class="pkg">
-                <h3>Full (Recomended)</h3>
+            <div class="pkg best">
+                <h3>Full <span class="new">RECOMMENDED</span></h3>
                 <div class="tag">Works even when the internet is down</div>
                 <ul>
                     <li>Everything in Standard</li>
@@ -601,12 +601,13 @@
     /* ── EDIT HERE ───────────────────────────────────────────────────────────
        Paste the real download links (GitHub Releases is best; Google Drive works too).
        sha256: run  certutil -hashfile Zoya-Setup-2.0.exe SHA256  and paste the result.
-       thankYou: the page people see after the download starts.                     */
+       The links work once GitHub release "v2.0" has these two files attached.
+       The thank-you page opens from the installer itself when setup finishes.        */
     const DOWNLOADS = {
-        standard: { url: "", sha256: "" },
-        full:     { url: "", sha256: "" }
+        standard: { url: "https://github.com/Pytstrt/ZOYA-INSTALLER/releases/download/v2.0/Zoya-Setup-2.0.exe", sha256: "2e8d481baa280f79e99952e301c77285168ea3c5b9d92ab7c2c85d276cb96ac0" },
+        full:     { url: "https://github.com/Pytstrt/ZOYA-INSTALLER/releases/download/v2.0/Zoya-Setup-2.0-Full.exe", sha256: "70a57097576c3b06a82d25f834b88efd017cb145ff9946e8a70c98fd4d81fa03" }
     };
-    const THANK_YOU_PAGE = "https://zoya-feature.onrender.com/";
+    const THANK_YOU_PAGE = "";   // the installer opens the thank-you page after setup
     /* ─────────────────────────────────────────────────────────────────────── */
 
     // Download buttons: real file when a link is set, otherwise a clear "coming soon".
