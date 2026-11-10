@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Zoya 2.0 — AI Voice Assistant for Windows by Tejas Munjal</title>
+    <meta name="description" content="Zoya is a free AI voice assistant for Windows 10 and 11. Talk in English, Hindi or Hinglish; Zoya uses your PC, phone, TV, lights, washing machine and AC. Powered by Google Gemini with an offline backup.">
+    <meta name="keywords" content="Zoya, AI assistant, Windows voice assistant, Hinglish assistant, Gemini, desktop assistant, Tejas Munjal">
+    <meta name="author" content="Tejas Munjal">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#07090e">
+
+    <!-- Link previews (WhatsApp, Facebook, X, LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Zoya 2.0 — AI Voice Assistant for Windows">
+    <meta property="og:description" content="Talk in Hinglish. Zoya uses your PC, phone, TV and home appliances. Free for personal use.">
+    <meta property="og:site_name" content="Zoya by Tejas Munjal">
+    <!-- After you upload a 1200×630 preview image, add:  <meta property="og:image" content="https://YOUR-SITE/zoya-preview.png"> -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Zoya 2.0 — AI Voice Assistant for Windows">
+    <meta name="twitter:description" content="Talk in Hinglish. Zoya uses your PC, phone, TV and home appliances.">
+
+    <!-- Zoya arc icon as favicon -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307090e'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%2300f2fe' stroke-width='4' stroke-dasharray='24 8'/%3E%3Ccircle cx='32' cy='32' r='12' fill='none' stroke='%237f00ff' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%2300f2fe'/%3E%3C/svg%3E">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Zoya",
+        "softwareVersion": "2.0",
+        "operatingSystem": "Windows 10, Windows 11 (64-bit)",
+        "applicationCategory": "UtilitiesApplication",
+        "description": "AI voice assistant for Windows that understands English, Hindi and Hinglish and controls the PC, phone, TV and home appliances.",
+        "author": { "@type": "Person", "name": "Tejas Munjal" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+        "license": "https://creativecommons.org/licenses/by-nc/4.0/"
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #07090e;
+            --bg-card: rgba(18, 24, 38, 0.72);
+            --accent-cyan: #00f2fe;
+            --accent-blue: #4facfe;
+            --accent-purple: #7f00ff;
+            --accent-pink: #e100ff;
+            --green: #10b981;
+            --amber: #fbbf24;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-glow: rgba(0, 242, 254, 0.25);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --radius-lg: 24px;
+            --radius-md: 16px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.5;
+            background-image:
+                radial-gradient(circle at 15% 15%, rgba(127, 0, 255, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 85% 65%, rgba(0, 242, 254, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 50% 95%, rgba(225, 0, 255, 0.08) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        a { color: var(--accent-cyan); }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+
+        /* NAV */
+        nav {
+            display: flex; justify-content: space-between; align-items: center; gap: 16px;
+            padding: 20px 0; border-bottom: 1px solid var(--glass-border);
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(7, 9, 14, 0.85); backdrop-filter: blur(12px);
+        }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+        .logo svg { width: 42px; height: 42px; flex: none; filter: drop-shadow(0 0 12px rgba(0, 242, 254, 0.45)); }
+        .logo strong { display: block; font-size: 22px; font-weight: 800; letter-spacing: 1px; }
+        .logo span { font-size: 11px; color: var(--accent-cyan); font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
+        .nav-links { display: flex; gap: 28px; list-style: none; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 500; font-size: 15px; }
+        .nav-links a:hover { color: var(--accent-cyan); }
+        .nav-btn {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue)); color: #000;
+            font-weight: 700; padding: 11px 22px; border-radius: 30px; text-decoration: none; white-space: nowrap;
+        }
+
+        /* HERO */
+        .hero { padding: 72px 0 40px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; }
+        .badge {
+            display: inline-block; padding: 7px 15px; background: rgba(0, 242, 254, 0.08);
+            border: 1px solid rgba(0, 242, 254, 0.3); border-radius: 30px; color: var(--accent-cyan);
+            font-size: 14px; font-weight: 600; margin-bottom: 22px;
+        }
+        .hero h1 { font-size: 56px; line-height: 1.1; font-weight: 800; margin-bottom: 22px; letter-spacing: -1.5px; }
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .hero-sub { font-size: 19px; color: var(--text-muted); margin-bottom: 32px; }
+
+        .download-box {
+            background: var(--bg-card); border: 1px solid var(--border-glow); border-radius: var(--radius-lg);
+            padding: 28px; backdrop-filter: blur(16px); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+        .box-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+        .box-top small { display: block; font-size: 12px; color: var(--text-muted); }
+        .pill {
+            font-size: 12px; background: rgba(16, 185, 129, 0.15); color: var(--green);
+            padding: 4px 10px; border-radius: 20px; font-weight: 700; white-space: nowrap;
+        }
+        .btn-main {
+            display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%;
+            padding: 17px 28px; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            color: #fff; font-size: 18px; font-weight: 700; text-decoration: none; border-radius: var(--radius-md);
+            box-shadow: 0 10px 30px rgba(127, 0, 255, 0.4); border: none; cursor: pointer; font-family: inherit;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .btn-main:hover { transform: translateY(-2px); box-shadow: 0 15px 40px rgba(0, 242, 254, 0.5); }
+        .meta-text { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; margin-top: 14px; font-size: 13px; color: var(--text-muted); }
+        .os-warn { display: none; margin-top: 14px; font-size: 14px; color: #fef08a; }
+
+        /* HERO PREVIEW */
+        .preview {
+            background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-lg);
+            padding: 28px; backdrop-filter: blur(20px); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+        }
+        .preview-head { display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; border-bottom: 1px solid var(--glass-border); font-weight: 700; font-size: 14px; letter-spacing: 1px; }
+        .online { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--green); }
+        .online i { width: 9px; height: 9px; background: var(--green); border-radius: 50%; box-shadow: 0 0 10px var(--green); }
+        .wave { display: flex; align-items: center; justify-content: center; gap: 6px; height: 64px; margin: 18px 0; }
+        .wave b { width: 6px; height: 18px; background: linear-gradient(to top, var(--accent-cyan), var(--accent-purple)); border-radius: 4px; animation: wave 1.2s infinite ease-in-out; }
+        .wave b:nth-child(2) { animation-delay: 0.2s; } .wave b:nth-child(3) { animation-delay: 0.4s; }
+        .wave b:nth-child(4) { animation-delay: 0.1s; } .wave b:nth-child(5) { animation-delay: 0.5s; }
+        @keyframes wave { 0%, 100% { height: 15px; } 50% { height: 54px; } }
+        @media (prefers-reduced-motion: reduce) { .wave b { animation: none; height: 30px; } }
+        .chat { display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
+        .chat p { padding: 12px 14px; border-radius: 14px; max-width: 92%; }
+        .chat .you { background: rgba(255, 255, 255, 0.06); align-self: flex-end; }
+        .chat .zoya { background: rgba(0, 242, 254, 0.08); border-left: 3px solid var(--accent-cyan); font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #c9fbff; }
+
+        /* SECTIONS */
+        section { scroll-margin-top: 90px; }
+        .section-header { text-align: center; margin: 96px 0 44px; }
+        .section-header h2 { font-size: 40px; font-weight: 800; margin-bottom: 14px; letter-spacing: -1px; }
+        .section-header p { color: var(--text-muted); font-size: 18px; max-width: 680px; margin: 0 auto; }
+
+        .card { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); padding: 32px; }
+
+        /* FEATURES */
+        .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .feature { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); padding: 30px; transition: border-color 0.2s ease, transform 0.2s ease; }
+        .feature:hover { border-color: var(--accent-purple); transform: translateY(-3px); }
+        .feature .ic { width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; font-size: 24px; background: rgba(127, 0, 255, 0.15); border: 1px solid rgba(127, 0, 255, 0.4); border-radius: 14px; margin-bottom: 18px; }
+        .feature h3 { font-size: 20px; margin-bottom: 10px; }
+        .feature ul { list-style: none; color: var(--text-muted); font-size: 15px; display: flex; flex-direction: column; gap: 7px; }
+        .feature li::before { content: "›"; color: var(--accent-cyan); font-weight: 800; margin-right: 8px; }
+        .new { font-size: 11px; font-weight: 800; color: #000; background: var(--accent-cyan); border-radius: 6px; padding: 2px 6px; margin-left: 6px; vertical-align: middle; }
+
+        /* COMMANDS */
+        .search {
+            width: 100%; padding: 18px 22px; background: rgba(0, 0, 0, 0.5); border: 1px solid var(--border-glow);
+            border-radius: var(--radius-md); color: #fff; font-size: 17px; margin-bottom: 26px; outline: none; font-family: inherit;
+        }
+        .search:focus { box-shadow: 0 0 20px rgba(0, 242, 254, 0.3); }
+        .cmd-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+        .cmd { background: rgba(255, 255, 255, 0.02); border: 1px solid var(--glass-border); border-radius: var(--radius-md); padding: 18px; }
+        .cmd b { display: block; font-family: 'JetBrains Mono', monospace; color: var(--accent-cyan); font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+        .cmd span { font-size: 13px; color: var(--text-muted); }
+        .no-match { display: none; color: var(--text-muted); text-align: center; padding: 10px; }
+
+        /* HARDWARE CHECK */
+        .hw-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+        .hw { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); border-radius: var(--radius-md); padding: 22px 14px; }
+        .hw small { display: block; font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .hw strong { font-size: 21px; color: var(--accent-cyan); }
+        .hw-note { margin-top: 18px; font-size: 13px; color: var(--text-muted); text-align: center; }
+
+        /* TABLES */
+        .table-wrap { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; text-align: left; min-width: 560px; }
+        th, td { padding: 17px 24px; border-bottom: 1px solid var(--glass-border); vertical-align: top; }
+        tr:last-child td { border-bottom: none; }
+        th { background: rgba(0, 0, 0, 0.4); font-size: 15px; }
+        td { font-size: 15px; color: var(--text-muted); }
+        td:first-child { color: var(--text-main); font-weight: 600; }
+
+        /* STEPS */
+        .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+        .step { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-md); padding: 28px; position: relative; }
+        .step .n { font-size: 42px; font-weight: 800; color: rgba(255, 255, 255, 0.08); position: absolute; top: 16px; right: 20px; }
+        .step h3 { font-size: 18px; margin-bottom: 10px; color: var(--accent-cyan); }
+        .step p { font-size: 14px; color: var(--text-muted); }
+
+        /* PRIVACY */
+        .privacy { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .privacy .feature p { color: var(--text-muted); font-size: 15px; }
+
+        /* DOWNLOADS */
+        .notice {
+            background: rgba(234, 179, 8, 0.1); border: 1px solid rgba(234, 179, 8, 0.3); border-radius: var(--radius-md);
+            padding: 18px 24px; margin-bottom: 28px; font-size: 15px; color: #fef08a;
+        }
+        .pkg-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
+        .pkg { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); padding: 32px; display: flex; flex-direction: column; }
+        .pkg.best { border-color: var(--border-glow); }
+        .pkg h3 { font-size: 23px; margin-bottom: 6px; }
+        .pkg .tag { font-size: 13px; color: var(--accent-cyan); font-weight: 700; margin-bottom: 14px; }
+        .pkg ul { list-style: none; color: var(--text-muted); font-size: 15px; display: flex; flex-direction: column; gap: 7px; margin-bottom: 20px; }
+        .pkg li::before { content: "✓"; color: var(--green); font-weight: 800; margin-right: 8px; }
+        .pkg .facts { font-size: 13px; color: var(--text-muted); margin-bottom: 18px; }
+        .pkg .btn-main { margin-top: auto; font-size: 16px; padding: 15px; }
+        .sha { margin-top: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-muted); word-break: break-all; display: none; }
+        .soon { margin-top: 10px; font-size: 13px; color: var(--amber); display: none; text-align: center; }
+
+        /* FAQ */
+        .faq { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+        details { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-md); padding: 20px 24px; }
+        summary { font-size: 17px; font-weight: 700; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: "+"; color: var(--accent-cyan); font-size: 20px; line-height: 1; }
+        details[open] summary::after { content: "−"; }
+        details p { margin-top: 12px; color: var(--text-muted); font-size: 15px; }
+
+        footer { margin-top: 110px; padding: 50px 0; border-top: 1px solid var(--glass-border); text-align: center; color: var(--text-muted); font-size: 14px; }
+        footer strong { color: var(--accent-cyan); }
+        footer p + p { margin-top: 8px; font-size: 12px; color: rgba(255, 255, 255, 0.45); }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .hero, .feature-grid, .cmd-grid, .privacy, .steps { grid-template-columns: 1fr 1fr; }
+            .hero { grid-template-columns: 1fr; }
+            .hw-grid { grid-template-columns: 1fr 1fr; }
+            .nav-links { display: none; }
+            .hero h1 { font-size: 44px; }
+        }
+        @media (max-width: 640px) {
+            .container { padding: 0 16px; }
+            .feature-grid, .cmd-grid, .privacy, .steps, .pkg-grid { grid-template-columns: 1fr; }
+            .hero { padding-top: 40px; gap: 36px; }
+            .hero h1 { font-size: 34px; }
+            .hero-sub { font-size: 17px; }
+            .section-header { margin: 72px 0 32px; }
+            .section-header h2 { font-size: 30px; }
+            .card, .feature, .pkg, .download-box, .preview { padding: 22px; }
+            .logo span { display: none; }
+            .nav-btn { padding: 10px 16px; font-size: 14px; }
+            .btn-main { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <nav>
+        <a class="logo" href="#top" aria-label="Zoya home">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+                <rect width="64" height="64" rx="14" fill="#0d1220"/>
+                <circle cx="32" cy="32" r="22" fill="none" stroke="#00f2fe" stroke-width="4" stroke-dasharray="24 8"/>
+                <circle cx="32" cy="32" r="12" fill="none" stroke="#7f00ff" stroke-width="4"/>
+                <circle cx="32" cy="32" r="5" fill="#00f2fe"/>
+            </svg>
+            <div><strong>ZOYA</strong><span>By Tejas Munjal</span></div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#commands">Try saying</a></li>
+            <li><a href="#requirements">Requirements</a></li>
+            <li><a href="#privacy">Privacy</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <a href="#downloads" class="nav-btn">Download</a>
+    </nav>
+
+    <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+        <div>
+            <div class="badge">Created &amp; developed by Tejas Munjal</div>
+            <h1>Your personal <span class="gradient-text">AI voice assistant</span> for Windows</h1>
+            <p class="hero-sub">
+                Talk to Zoya in English, Hindi or Hinglish. She answers, works on your screen, and controls your
+                phone, TV, lights, washing machine and AC. Powered by Google Gemini, with an offline backup brain.
+            </p>
+
+            <div class="download-box">
+                <div class="box-top">
+                    <div>
+                        <strong id="os-name">Windows 11 / 10</strong>
+                        <small>64-bit desktop or laptop</small>
+                    </div>
+                    <span class="pill">Version 2.0</span>
+                </div>
+                <a class="btn-main js-download" data-package="standard" href="#downloads">Download Zoya for Windows</a>
+                <div class="meta-text">
+                    <span>Free for personal use</span>
+                    <span>Installer ~51 MB · downloads 1.5–2 GB during setup</span>
+                </div>
+                <p class="os-warn" id="os-warn">You seem to be on a phone or a Mac. Zoya runs only on Windows 10 / 11 PCs — open this page on your PC to download.</p>
+            </div>
+        </div>
+
+        <div class="preview" aria-label="Example conversation">
+            <div class="preview-head">
+                <span>ZOYA</span>
+                <span class="online"><i></i>LISTENING</span>
+            </div>
+            <div class="wave" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b></div>
+            <div class="chat">
+                <p class="you">Zoya, washing machine kitna time baki hai?</p>
+                <p class="zoya">25 minute baki hain — 4:35 tak band ho jayegi.</p>
+                <p class="you">AC 24 pe kar do.</p>
+                <p class="zoya">Done. Bedroom AC: cool mode, 24°C.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features">
+        <div class="section-header">
+            <h2>What Zoya can do</h2>
+            <p>One assistant for your PC, your phone and your home.</p>
+        </div>
+        <div class="feature-grid">
+            <div class="feature">
+                <div class="ic">🎙</div>
+                <h3>Talk and think</h3>
+                <ul>
+                    <li>Live voice chat in English, Hindi and Hinglish</li>
+                    <li>Interrupt her any time, mid-sentence</li>
+                    <li>Three voices to choose from</li>
+                    <li>Remembers your name, preferences and chats</li>
+                    <li>Offline backup brain when the internet is down</li>
+                </ul>
+            </div>
+            <div class="feature">
+                <div class="ic">🖥</div>
+                <h3>Your PC</h3>
+                <ul>
+                    <li>Screen agent: opens apps, fills forms, works in Excel</li>
+                    <li>Looks at your screen and helps fix errors</li>
+                    <li>Up to 50 files at once: summarise, compare, to Excel</li>
+                    <li>Volume, brightness, Wi-Fi and routines by voice</li>
+                    <li>Focus timer, notes, expenses and screen time</li>
+                </ul>
+            </div>
+            <div class="feature">
+                <div class="ic">📱</div>
+                <h3>Phone and social</h3>
+                <ul>
+                    <li>Phone notifications read out; OTP copied to the PC</li>
+                    <li>Find my phone — rings it even on silent</li>
+                    <li>Gmail: who sent each new mail, replies on request</li>
+                    <li>Instagram, Facebook and WhatsApp alerts and messages</li>
+                    <li>Post helper: caption, hashtags and song ideas</li>
+                </ul>
+            </div>
+            <div class="feature">
+                <div class="ic">🏠</div>
+                <h3>Home <span class="new">NEW</span></h3>
+                <ul>
+                    <li>Washing machine: time left and a “done” alert</li>
+                    <li>AC: on/off, mode and temperature</li>
+                    <li>TV: open YouTube, Netflix and more, volume, channels</li>
+                    <li>Smart lights and plugs: colours, scenes, brightness</li>
+                    <li>LG ThinQ, Samsung SmartThings, Home Assistant</li>
+                </ul>
+            </div>
+            <div class="feature">
+                <div class="ic">📚</div>
+                <h3>Work and study</h3>
+                <ul>
+                    <li>Meeting notes: summary, decisions, action items</li>
+                    <li>Quiz, flashcards and revision plan from any PDF</li>
+                    <li>Reads Hindi, Punjabi and scanned documents</li>
+                    <li>Evening day summary and custom alerts</li>
+                    <li>Coding help in VS Code and Arduino</li>
+                </ul>
+            </div>
+            <div class="feature">
+                <div class="ic">🔐</div>
+                <h3>Safe by design</h3>
+                <ul>
+                    <li>Face login (Extra Mode) or password (Simple Mode)</li>
+                    <li>Voice lock: personal actions only for your voice</li>
+                    <li>Passwords and keys typed in secure boxes, never in chat</li>
+                    <li>Asks before submit, pay, send or delete</li>
+                    <li>Encrypted backup to move to a new PC</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMMANDS -->
+    <section id="commands">
+        <div class="section-header">
+            <h2>Try saying</h2>
+            <p>Type a word to filter — TV, phone, AC, mail, study, screen…</p>
+        </div>
+        <div class="card">
+            <input type="search" class="search" id="cmd-input" placeholder="Search commands (e.g. TV, AC, mail, quiz)" aria-label="Search commands">
+            <div class="cmd-grid" id="cmd-grid">
+                <div class="cmd"><b>“Washing machine kitna time baki hai?”</b><span>Time left and when it stops. Zoya also tells you when the wash is done.</span></div>
+                <div class="cmd"><b>“AC 24 pe kar do”</b><span>Sets the AC temperature; also on/off and cool, dry or fan mode.</span></div>
+                <div class="cmd"><b>“Open Netflix on the TV”</b><span>Opens apps on Android TV / Google TV and Samsung TV.</span></div>
+                <div class="cmd"><b>“Mere important mails batao”</b><span>Reads who wrote and what about; drafts replies.</span></div>
+                <div class="cmd"><b>“Phone ka OTP copy karo”</b><span>Copies the latest OTP from your phone to the PC clipboard.</span></div>
+                <div class="cmd"><b>“Riya ko Insta pe bol kal milte hain”</b><span>Sends the message after a 5-second cancel window.</span></div>
+                <div class="cmd"><b>“Is error ko fix karo”</b><span>Looks at your screen and explains or fixes what is wrong.</span></div>
+                <div class="cmd"><b>“Is PDF se 10 sawaal ka quiz banao”</b><span>Quiz, flashcards or a revision plan from your notes.</span></div>
+                <div class="cmd"><b>“Meeting notes shuru karo”</b><span>Records the call, then summary, decisions and action items.</span></div>
+                <div class="cmd"><b>“Lights blue kar do”</b><span>Colours, brightness and scenes for WiZ and Smart Life lights.</span></div>
+                <div class="cmd"><b>“Mera phone dhundo”</b><span>Rings your phone, even when it is on silent.</span></div>
+                <div class="cmd"><b>“Zoya backup lo”</b><span>One encrypted file with all your settings and logins.</span></div>
+            </div>
+            <p class="no-match" id="no-match">No command matches that word. Zoya can still try — just ask her.</p>
+        </div>
+    </section>
+
+    <!-- REQUIREMENTS -->
+    <section id="requirements">
+        <div class="section-header">
+            <h2>System requirements</h2>
+            <p>Zoya runs on most Windows PCs from the last few years.</p>
+        </div>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Item</th><th>Minimum</th><th>Recommended</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Windows</td><td>10 or 11, 64-bit</td><td>11, 64-bit</td></tr>
+                    <tr><td>RAM — Standard setup</td><td>4 GB</td><td>8 GB</td></tr>
+                    <tr><td>RAM — Full setup (offline brain)</td><td>8 GB</td><td>16 GB</td></tr>
+                    <tr><td>Free disk space</td><td>6 GB (Standard) / 11 GB (Full)</td><td>10 GB / 15 GB</td></tr>
+                    <tr><td>Processor</td><td>4 cores (Core i3 / Ryzen 3)</td><td>Core i5 / Ryzen 5 or better</td></tr>
+                    <tr><td>Internet</td><td>Needed — Gemini works online</td><td>10 Mbps or faster</td></tr>
+                    <tr><td>Microphone and speakers</td><td>Needed</td><td>Headphones reduce echo</td></tr>
+                    <tr><td>Webcam</td><td>Optional (face login)</td><td>720p</td></tr>
+                    <tr><td>Google Chrome</td><td>For Instagram, Facebook, Gmail and WhatsApp login</td><td>Latest version</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card" style="margin-top: 26px;" id="check">
+            <div class="hw-grid">
+                <div class="hw"><small>Your system</small><strong id="hw-os">Checking…</strong></div>
+                <div class="hw"><small>CPU threads</small><strong id="hw-cpu">Checking…</strong></div>
+                <div class="hw"><small>RAM</small><strong id="hw-ram">Checking…</strong></div>
+                <div class="hw"><small>Result</small><strong id="hw-result">Checking…</strong></div>
+            </div>
+            <p class="hw-note">A quick estimate from your browser. Browsers report at most 8 GB of RAM and some (Firefox, Safari) report none, so the setup checks your PC again before installing.</p>
+        </div>
+    </section>
+
+    <!-- SETUP -->
+    <section id="setup">
+        <div class="section-header">
+            <h2>Set up in 4 steps</h2>
+            <p>The setup installs everything by itself. It takes about 20–60 minutes, depending on your internet speed.</p>
+        </div>
+        <div class="steps">
+            <div class="step"><span class="n">01</span><h3>Download</h3><p>Choose Standard or Full below and save the .exe file.</p></div>
+            <div class="step"><span class="n">02</span><h3>Run the setup</h3><p>No admin rights needed. It installs Python, Zoya's packages and, with Full, the offline parts. Anything already on your PC is skipped.</p></div>
+            <div class="step"><span class="n">03</span><h3>Meet Zoya</h3><p>She asks your name, plays her voices for you to pick, and takes your free <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Gemini API key</a> (needed).</p></div>
+            <div class="step"><span class="n">04</span><h3>Lock it to you</h3><p>Add your face (Extra Mode) and a password (Simple Mode). Then say “Zoya” or hold Ctrl+Space and start talking.</p></div>
+        </div>
+    </section>
+
+    <!-- PRIVACY -->
+    <section id="privacy">
+        <div class="section-header">
+            <h2>Privacy, plainly</h2>
+            <p>What stays on your PC, and what goes to Google.</p>
+        </div>
+        <div class="privacy">
+            <div class="feature">
+                <div class="ic">💻</div>
+                <h3>Stays on your PC</h3>
+                <p>Chat history, memory, notes, screen history, face data, logins, tokens and your API key. Logins and keys are encrypted with Windows (DPAPI), readable only by your Windows account.</p>
+            </div>
+            <div class="feature">
+                <div class="ic">☁</div>
+                <h3>Sent to Google Gemini</h3>
+                <p>Your voice while you talk to Zoya, and the screen text or screenshots she needs for a task you ask about (screen help, screen agent, files you give her). You use your own Gemini key; Google's terms apply to that data.</p>
+            </div>
+            <div class="feature">
+                <div class="ic">🛡</div>
+                <h3>You stay in control</h3>
+                <p>Zoya asks before submit, pay, send or delete, never types passwords, and you press Share or Post yourself. Press Esc to stop the screen agent at any time. Screen sharing with Gemini can be turned off in Settings → Screen.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOWNLOADS -->
+    <section id="downloads">
+        <div class="section-header">
+            <h2>Download Zoya 2.0</h2>
+            <p>Pick one. You can run the Full setup later to add the offline parts.</p>
+        </div>
+
+        <div class="notice">
+            <strong>Windows only:</strong> Zoya runs on Windows 10 and 11 (64-bit). There is no macOS, Linux, Android or iOS version.
+            Windows may show “Windows protected your PC” because the installer is new — click <strong>More info → Run anyway</strong>.
+        </div>
+
+        <div class="pkg-grid">
+            <div class="pkg best">
+                <h3>Standard</h3>
+                <div class="tag">Best for most people</div>
+                <ul>
+                    <li>All of Zoya's features</li>
+                    <li>Python and every package, installed for you</li>
+                    <li>Gemini brain (online)</li>
+                </ul>
+                <p class="facts">Zoya-Setup-2.0.exe · installer ~51 MB · downloads 1.5–2 GB · 6 GB free space</p>
+                <a class="btn-main js-download" data-package="standard" href="#downloads">Download Standard</a>
+                <p class="sha" data-sha="standard"></p>
+                <p class="soon" data-soon="standard">Download link coming soon.</p>
+            </div>
+            <div class="pkg">
+                <h3>Full (Recomended)</h3>
+                <div class="tag">Works even when the internet is down</div>
+                <ul>
+                    <li>Everything in Standard</li>
+                    <li>Offline brain (Ollama + one model sized to your RAM)</li>
+                    <li>Offline speech, voice ID and FFmpeg</li>
+                </ul>
+                <p class="facts">Zoya-Setup-2.0-Full.exe · downloads 5–6 GB · 11 GB free space · 8 GB RAM</p>
+                <a class="btn-main js-download" data-package="full" href="#downloads">Download Full</a>
+                <p class="sha" data-sha="full"></p>
+                <p class="soon" data-soon="full">Download link coming soon.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="section-header">
+            <h2>Frequently asked questions</h2>
+        </div>
+        <div class="faq">
+            <details>
+                <summary>Is Zoya free?</summary>
+                <p>Yes, Zoya is free for personal use (license CC BY-NC 4.0). She uses your own Google Gemini API key, which you can get free from Google AI Studio. Google's free tier has daily limits; heavy use may need a paid Gemini plan.</p>
+            </details>
+            <details>
+                <summary>Why do I need a Gemini API key?</summary>
+                <p>Gemini is Zoya's main brain — it lets her think and talk live. The key is asked for once at first run, and you can change it any time in Settings → Gemini key.</p>
+            </details>
+            <details>
+                <summary>Does Zoya send my data to servers?</summary>
+                <p>Your voice and the screen parts needed for a task go to Google Gemini. Your history, memory, face data, logins and keys stay on your PC. See “Privacy, plainly” above.</p>
+            </details>
+            <details>
+                <summary>Windows says “Windows protected your PC”. Is it safe?</summary>
+                <p>New installers from independent developers show this warning until enough people have used them. Click More info → Run anyway. Download Zoya only from this page.</p>
+            </details>
+            <details>
+                <summary>Why does setup take so long?</summary>
+                <p>The setup downloads Python and Zoya's packages (1.5–2 GB), and with Full also the offline brain and speech models (5–6 GB in total). On a 10 Mbps connection this takes about 20–60 minutes. Anything already on your PC, including an existing Ollama, is reused.</p>
+            </details>
+            <details>
+                <summary>Which TVs and appliances work?</summary>
+                <p>TVs: Android TV / Google TV and Samsung TV. Lights: Philips WiZ and Tuya / Smart Life brands such as Wipro, Syska and Havells. Washing machines and ACs: LG ThinQ and Samsung SmartThings, or any brand through Home Assistant.</p>
+            </details>
+            <details>
+                <summary>Is Zoya available for Mac, Linux or phones?</summary>
+                <p>No. Zoya runs only on Windows 10 and 11 (64-bit). Your Android phone can be connected to Zoya, but Zoya itself runs on the PC.</p>
+            </details>
+            <details>
+                <summary>How do I uninstall Zoya?</summary>
+                <p>Windows Settings → Apps → Zoya → Uninstall, or run “Uninstall Zoya.cmd” in the Zoya folder. Make a backup first if you want to keep your data (say “Zoya backup lo”).</p>
+            </details>
+        </div>
+    </section>
+
+    </main>
+
+    <footer>
+        <p><strong>Zoya</strong> 2.0 © 2026 — designed and developed by <strong>Tejas Munjal</strong>.</p>
+        <p>Free for personal use under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>. Gemini is a trademark of Google LLC; Zoya is not affiliated with Google.</p>
+    </footer>
+</div>
+
+<script>
+    /* ── EDIT HERE ───────────────────────────────────────────────────────────
+       Paste the real download links (GitHub Releases is best; Google Drive works too).
+       sha256: run  certutil -hashfile Zoya-Setup-2.0.exe SHA256  and paste the result.
+       thankYou: the page people see after the download starts.                     */
+    const DOWNLOADS = {
+        standard: { url: "", sha256: "" },
+        full:     { url: "", sha256: "" }
+    };
+    const THANK_YOU_PAGE = "https://zoya-feature.onrender.com/";
+    /* ─────────────────────────────────────────────────────────────────────── */
+
+    // Download buttons: real file when a link is set, otherwise a clear "coming soon".
+    document.querySelectorAll(".js-download").forEach(btn => {
+        btn.addEventListener("click", e => {
+            const pkg = btn.dataset.package;
+            const d = DOWNLOADS[pkg];
+            if (!d || !d.url) {
+                if (btn.closest(".pkg")) {
+                    e.preventDefault();
+                    const s = document.querySelector(`[data-soon="${pkg}"]`);
+                    if (s) s.style.display = "block";
+                }
+                return;   // hero button just scrolls to the packages
+            }
+            e.preventDefault();
+            window.location.href = d.url;
+            if (THANK_YOU_PAGE) setTimeout(() => { window.location.href = THANK_YOU_PAGE; }, 2500);
+        });
+    });
+    Object.entries(DOWNLOADS).forEach(([pkg, d]) => {
+        const el = document.querySelector(`[data-sha="${pkg}"]`);
+        if (el && d.sha256) { el.textContent = "SHA-256: " + d.sha256; el.style.display = "block"; }
+    });
+
+    // Honest PC check: only what the browser can see.
+    (function check() {
+        const ua = navigator.userAgent || "";
+        const isWindows = /Windows NT/i.test(ua);
+        const isMobile = /Android|iPhone|iPad|Mobile/i.test(ua);
+        const cores = navigator.hardwareConcurrency || 0;
+        const ram = navigator.deviceMemory || 0;        // capped at 8 by browsers
+
+        const osText = isWindows ? "Windows" : isMobile ? "Phone / tablet" : /Mac/i.test(ua) ? "Mac" : "Not Windows";
+        document.getElementById("hw-os").textContent = osText;
+        document.getElementById("hw-cpu").textContent = cores ? cores + " threads" : "Not shown";
+        document.getElementById("hw-ram").textContent = ram ? (ram >= 8 ? "8 GB or more" : ram + " GB") : "Not shown";
+
+        const result = document.getElementById("hw-result");
+        let text, color;
+        if (!isWindows) { text = "Needs a Windows PC"; color = "#f87171"; }
+        else if (ram && ram < 4) { text = "Below minimum"; color = "#f87171"; }
+        else if (ram >= 8 && cores >= 4) { text = "Ready for Full"; color = "#10b981"; }
+        else if (ram >= 4) { text = "Ready for Standard"; color = "#10b981"; }
+        else { text = "Probably fine"; color = "#fbbf24"; }
+        result.textContent = text;
+        result.style.color = color;
+
+        if (!isWindows) {
+            document.getElementById("os-warn").style.display = "block";
+            document.getElementById("os-name").textContent = "For Windows 11 / 10 PCs";
+        }
+    })();
+
+    // Command filter
+    const input = document.getElementById("cmd-input");
+    input.addEventListener("input", () => {
+        const q = input.value.trim().toLowerCase();
+        let shown = 0;
+        document.querySelectorAll("#cmd-grid .cmd").forEach(card => {
+            const hit = !q || card.textContent.toLowerCase().includes(q);
+            card.style.display = hit ? "" : "none";
+            if (hit) shown++;
+        });
+        document.getElementById("no-match").style.display = shown ? "none" : "block";
+    });
+</script>
+</body>
+</html>
