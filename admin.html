@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Zoya Users</title>
+<style>
+:root{--bg:#060818;--ink:#0b1030;--line:rgba(150,165,255,.18);--cyan:#22d3ee;--snow:#f4f6ff;--mist:#a9b3d8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--snow);font:15px/1.5 "Segoe UI",system-ui,sans-serif}
+main{max-width:1200px;margin:0 auto;padding:28px 16px}h1{margin:0 0 4px;font-size:28px}p{color:var(--mist);margin:0 0 18px}
+button{font:600 14px "Segoe UI";padding:10px 18px;border-radius:999px;border:0;cursor:pointer;background:var(--cyan);color:#041018}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0}.stat{background:var(--ink);border:1px solid var(--line);border-radius:14px;padding:12px 18px}
+.stat b{display:block;font-size:24px}.stat span{color:var(--mist);font-size:13px}
+.wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px}table{border-collapse:collapse;width:100%;min-width:860px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;font-size:14px}th{background:#111a44;color:var(--cyan);position:sticky;top:0}
+input{background:var(--ink);color:var(--snow);border:1px solid var(--line);border-radius:10px;padding:9px 12px;min-width:260px}
+.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap}#who{color:var(--mist);font-size:13px}
+</style></head><body><main>
+<h1>Zoya users</h1><p>Private: only the owner's Google account can read this list. It holds email, name, version, Windows, city and sign-in times — no chats or personal data.</p>
+<div class="bar"><button id="in">Sign in with Google</button><button id="out" hidden>Sign out</button><input id="q" placeholder="Search email, name, city…" hidden><span id="who"></span></div>
+<div class="stats" id="stats"></div><div class="wrap" id="wrap" hidden><table><thead><tr><th>Email</th><th>Name</th><th>Version</th><th>Windows</th><th>City</th><th>Country</th><th>First seen</th><th>Last seen</th><th>Sign-ins</th></tr></thead><tbody id="rows"></tbody></table></div>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+firebase.initializeApp({apiKey:"AIzaSyBZx_fuRuF3pngCLrNs83MiPTASOPaX-6E",authDomain:"zoya-1487d.firebaseapp.com",projectId:"zoya-1487d"});
+const auth=firebase.auth(),db=firebase.firestore(),$=id=>document.getElementById(id);let all=[];
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const when=t=>t&&t.toDate?t.toDate().toLocaleString():"";
+$("in").onclick=()=>auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());$("out").onclick=()=>auth.signOut();
+$("q").oninput=()=>show();
+function show(){const q=$("q").value.toLowerCase();const r=all.filter(u=>!q||[u.email,u.name,u.city,u.country,u.version].join(" ").toLowerCase().includes(q));
+$("rows").innerHTML=r.map(u=>`<tr><td>${esc(u.email)}</td><td>${esc(u.name)}</td><td>${esc(u.version)}</td><td>${esc(u.os)}</td><td>${esc(u.city)}</td><td>${esc(u.country)}</td><td>${when(u.first_seen)}</td><td>${when(u.last_seen)}</td><td>${esc(u.logins)}</td></tr>`).join("");
+const day=Date.now()-864e5,vers={};all.forEach(u=>vers[u.version]=(vers[u.version]||0)+1);
+$("stats").innerHTML=`<div class="stat"><b>${all.length}</b><span>users</span></div><div class="stat"><b>${all.filter(u=>u.last_seen&&u.last_seen.toDate()>day).length}</b><span>active in 24 h</span></div>`+Object.entries(vers).map(([v,n])=>`<div class="stat"><b>${n}</b><span>on ${esc(v)}</span></div>`).join("");}
+auth.onAuthStateChanged(async u=>{$("in").hidden=!!u;$("out").hidden=!u;$("q").hidden=!u;$("who").textContent=u?u.email:"";
+if(!u){$("wrap").hidden=true;$("stats").innerHTML="";return}
+try{const s=await db.collection("users").orderBy("last_seen","desc").get();all=s.docs.map(d=>d.data());$("wrap").hidden=false;show()}
+catch(e){$("stats").innerHTML=`<p>This account can't read the list (${esc(e.code||e.message)}). Sign in with the owner's Google account.</p>`}});
+</script></main></body></html>
