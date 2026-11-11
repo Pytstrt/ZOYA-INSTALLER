@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download Zoya 2.1 — AI Voice Assistant for Windows by Tejas Munjal</title>
-    <meta name="description" content="Zoya is a free AI voice assistant for Windows 10 and 11. Talk in English, Hindi or Hinglish; Zoya uses your PC, phone, TV, lights, washing machine and AC. Powered by Google Gemini with an offline backup.">
-    <meta name="keywords" content="Zoya, AI assistant, Windows voice assistant, Hinglish assistant, Gemini, desktop assistant, Tejas Munjal">
+    <title>Download Zoya 2.2 — AI Voice Assistant for Windows by Tejas Munjal</title>
+    <meta name="description" content="Zoya is a free AI voice assistant for Windows 10 and 11. Talk in English, Hindi or Hinglish; Zoya uses your PC, phone, TV, lights, washing machine and AC, knows who is talking and recognises songs you hum. Powered by Google Gemini with an offline backup.">
+    <meta name="keywords" content="Zoya, AI assistant, Windows voice assistant, Hinglish assistant, song recognition, hum to search, voice recognition, Gemini, desktop assistant, Tejas Munjal">
     <meta name="author" content="Tejas Munjal">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#07090e">
 
     <!-- Link previews (WhatsApp, Facebook, X, LinkedIn) -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Zoya 2.1 — AI Voice Assistant for Windows">
+    <meta property="og:title" content="Zoya 2.2 — AI Voice Assistant for Windows">
     <meta property="og:description" content="Talk in Hinglish. Zoya uses your PC, phone, TV and home appliances. Free for personal use.">
     <meta property="og:site_name" content="Zoya by Tejas Munjal">
     <!-- After you upload a 1200×630 preview image, add:  <meta property="og:image" content="https://YOUR-SITE/zoya-preview.png"> -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Zoya 2.1 — AI Voice Assistant for Windows">
+    <meta name="twitter:title" content="Zoya 2.2 — AI Voice Assistant for Windows">
     <meta name="twitter:description" content="Talk in Hinglish. Zoya uses your PC, phone, TV and home appliances.">
 
     <!-- Zoya arc icon as favicon -->
@@ -28,7 +28,7 @@
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "Zoya",
-        "softwareVersion": "2.1.1",
+        "softwareVersion": "2.2",
         "operatingSystem": "Windows 10, Windows 11 (64-bit)",
         "applicationCategory": "UtilitiesApplication",
         "description": "AI voice assistant for Windows that understands English, Hindi and Hinglish and controls the PC, phone, TV and home appliances.",
@@ -167,6 +167,75 @@
         .feature h3 { font-size: 20px; margin-bottom: 10px; }
         .feature ul { list-style: none; color: var(--text-muted); font-size: 15px; display: flex; flex-direction: column; gap: 7px; }
         .feature li::before { content: "›"; color: var(--accent-cyan); font-weight: 800; margin-right: 8px; }
+        /* VERSIONS */
+        .vlist { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+        .vcard { background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-md); padding: 20px; }
+        .vcard.latest { border: 1px solid transparent;
+            background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+                        linear-gradient(135deg, var(--accent-cyan), var(--accent-purple), var(--accent-pink)) border-box;
+            box-shadow: 0 0 36px rgba(127, 0, 255, 0.22); }
+        .vtop { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 8px; }
+        .vtop h3 { white-space: nowrap; }
+        .vcard h3 { font-size: 19px; }
+        .vtag { font-size: 10px; font-weight: 800; letter-spacing: 0.6px; text-transform: uppercase; color: var(--text-muted);
+            border: 1px solid var(--glass-border); border-radius: 20px; padding: 3px 8px; white-space: nowrap; }
+        .vtag.latest { color: #000; border: 0; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-pink)); }
+        .vdate { font-size: 12px; color: var(--text-muted); margin: 4px 0 10px; }
+        .vhead { font-size: 14px; color: var(--text-main); margin-bottom: 10px; }
+        .vcard ul { list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--text-muted); }
+        .vcard li::before { content: "›"; color: var(--accent-cyan); font-weight: 800; margin-right: 6px; }
+        .vsub { font-size: 22px; margin: 44px 0 16px; }
+        .vtable-wrap { overflow-x: auto; border: 1px solid var(--glass-border); border-radius: var(--radius-md); background: var(--bg-card); }
+        .vtable { width: 100%; border-collapse: collapse; min-width: 640px; font-size: 14px; }
+        .vtable th, .vtable td { padding: 11px 14px; border-bottom: 1px solid var(--glass-border); text-align: center; vertical-align: middle; }
+        .vtable tbody th { text-align: left; font-weight: 500; color: var(--text-main); }
+        .vtable thead th { font-size: 13px; color: var(--text-muted); font-weight: 700; position: sticky; top: 0; background: #0f1524; }
+        .vtable thead th:first-child { text-align: left; }
+        .vtable thead th small { display: block; font-size: 10px; color: var(--accent-pink); text-transform: uppercase; letter-spacing: 0.6px; }
+        .vtable thead th.cur { color: #fff; }
+        .vtable td.cur, .vtable th.cur { background: rgba(127, 0, 255, 0.12); }
+        .vtable tr.grp th { text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-cyan); background: rgba(0, 242, 254, 0.05); }
+        .vtable tbody tr:not(.grp):hover { background: rgba(255, 255, 255, 0.03); }
+        .vtable tbody th:first-child { position: sticky; left: 0; background: #111827; }
+        .vtable tr.grp th:first-child { background: #0f1a26; }
+        .yes, .no { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; font-size: 13px; font-weight: 800; }
+        .yes { color: #04140d; background: var(--green); }
+        .no { color: rgba(248, 113, 113, 0.85); background: rgba(248, 113, 113, 0.1); border: 1px solid rgba(248, 113, 113, 0.25); }
+        .vnote { margin-top: 14px; font-size: 13px; color: var(--text-muted); }
+        .vnote .yes, .vnote .no { width: 18px; height: 18px; font-size: 10px; }
+        @media (max-width: 1024px) { .vlist { grid-template-columns: repeat(2, 1fr); } .vcard.latest { grid-column: 1 / -1; } }
+        @media (max-width: 640px) {
+            .vlist { grid-template-columns: 1fr; }
+            .vtable { min-width: 0; table-layout: fixed; font-size: 12.5px; }
+            .vtable th, .vtable td { padding: 9px 3px; }
+            .vtable tbody th, .vtable thead th:first-child { width: 40%; padding-left: 10px; }
+            .vtable thead th { font-size: 11px; }
+            .vtable thead th small { font-size: 8px; letter-spacing: 0; }
+            .vtable .yes, .vtable .no { width: 20px; height: 20px; font-size: 11px; }
+            .vtable .new { display: none; }
+        }
+        /* NEW IN 2.2 highlight */
+        .spot { position: relative; margin-top: 56px; padding: 34px; border-radius: var(--radius-lg); border: 1px solid transparent;
+            background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+                        linear-gradient(135deg, var(--accent-cyan), var(--accent-purple), var(--accent-pink)) border-box;
+            box-shadow: 0 0 60px rgba(127, 0, 255, 0.25); }
+        .spot-tag { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: #000;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-pink)); border-radius: 30px; padding: 6px 14px; margin-bottom: 14px; }
+        .spot h2 { font-size: 32px; margin-bottom: 8px; }
+        .spot > p { color: var(--text-muted); margin-bottom: 26px; }
+        .spot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+        .spot-card { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); border-radius: 18px; padding: 24px; }
+        .spot-card h3 { font-size: 21px; margin-bottom: 10px; }
+        .spot-card p { color: var(--text-muted); font-size: 15px; margin-bottom: 12px; }
+        .spot-card .say { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #c9fbff; background: rgba(0, 242, 254, 0.08);
+            border-left: 3px solid var(--accent-cyan); border-radius: 10px; padding: 10px 12px; margin-top: 8px; }
+        .feature li.hl { color: var(--text-main, #fff); font-weight: 600; }
+        .feature li.hl::before { content: "★"; color: var(--accent-pink); }
+        .cmd.hl { border-color: var(--accent-pink) !important; box-shadow: 0 0 22px rgba(225, 0, 255, 0.25); }
+        .cmd.hl b::after { content: "NEW"; font-size: 10px; font-weight: 800; color: #000; background: var(--accent-pink); border-radius: 5px; padding: 1px 5px; margin-left: 8px; vertical-align: middle; }
+        @media (max-width: 640px) { .spot { padding: 22px; } .spot h2 { font-size: 25px; } .spot-grid { grid-template-columns: 1fr; } }
+        .nav-new { margin-right: 8px; background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple)) !important; color: #fff !important; }
+        @media (max-width: 640px) { .nav-new { display: none; } }
         .new { font-size: 11px; font-weight: 800; color: #000; background: var(--accent-cyan); border-radius: 6px; padding: 2px 6px; margin-left: 6px; vertical-align: middle; }
 
         /* COMMANDS */
@@ -280,9 +349,11 @@
             <li><a href="#commands">Try saying</a></li>
             <li><a href="#requirements">Requirements</a></li>
             <li><a href="#privacy">Privacy</a></li>
+            <li><a href="#versions">Versions</a></li>
             <li><a href="#faq">FAQ</a></li>
         </ul>
-        <a href="#downloads" class="nav-btn">Download</a>
+        <div style="display:flex;align-items:center"><a href="#new" class="nav-btn nav-new">New in 2.2</a>
+        <a href="#downloads" class="nav-btn">Download</a></div>
     </nav>
 
     <main id="top">
@@ -303,7 +374,7 @@
                         <strong id="os-name">Windows 11 / 10</strong>
                         <small>64-bit desktop or laptop</small>
                     </div>
-                    <span class="pill">Version 2.1.1</span>
+                    <span class="pill">Version 2.2</span>
                 </div>
                 <a class="btn-main" href="#downloads">Download Zoya for Windows</a>
                 <div class="meta-text">
@@ -321,10 +392,33 @@
             </div>
             <div class="wave" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b></div>
             <div class="chat">
-                <p class="you">Zoya, washing machine kitna time baki hai?</p>
-                <p class="zoya">25 minute baki hain — 4:35 tak band ho jayegi.</p>
-                <p class="you">AC 24 pe kar do.</p>
-                <p class="zoya">Done. Bedroom AC: cool mode, 24°C.</p>
+                <p class="you">Zoya, ye kaunsa gaana hai?</p>
+                <p class="zoya">Sun rahi hu… Ye “Kesariya” hai — Arijit Singh, Brahmastra. Bajau?</p>
+                <p class="you">Main gaata hu, tum bajao… 🎤 ♪ ♪</p>
+                <p class="zoya">Pehchan liya! “Tum Hi Ho” chala rahi hu. 🎵</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW IN 2.2 -->
+    <section id="new" class="spot" aria-labelledby="new-title">
+        <span class="spot-tag">✨ New in 2.2</span>
+        <h2 id="new-title">Zoya knows <span class="gradient-text">who is talking</span> — and <span class="gradient-text">which song is playing</span></h2>
+        <p>Two new things Zoya does just by listening.</p>
+        <div class="spot-grid">
+            <div class="spot-card">
+                <h3>🗣 Recognises your voice</h3>
+                <p>Zoya calls you by your name only when it is really you. If someone else talks to her, she greets them
+                   the Indian way from how they sound — <b>didi</b>, <b>bhaiya</b>, <b>aunty</b> or <b>uncle</b> — and never uses your name.</p>
+                <p>Checked on your PC while you speak; nothing is recorded or stored. Record 4 voice samples once in Settings.</p>
+                <div class="say">Mummy: “Zoya, aaj mausam kaisa hai?”<br>Zoya: “Aunty, aaj dhoop hai, 31°C…”</div>
+            </div>
+            <div class="spot-card">
+                <h3>🎵 Song recognition — even when you hum</h3>
+                <p><b>Sun ke batao:</b> a song is playing nearby — Zoya listens ~10 seconds and tells you its name, singer and film.</p>
+                <p><b>Sun ke bajao:</b> sing or hum just 2–3 lines and Zoya finds the song and plays it — on her screen or on your TV,
+                   like YouTube's hum-to-search. Not sure? She shows the top options and plays the one you pick.</p>
+                <div class="say">“Ye kaunsa gaana hai?” · “Main gaata hu, tum bajao” · “Sun ke TV pe bajao”</div>
             </div>
         </div>
     </section>
@@ -338,13 +432,15 @@
         <div class="feature-grid">
             <div class="feature">
                 <div class="ic">🎙</div>
-                <h3>Talk and think</h3>
+                <h3>Talk and think <span class="new">NEW</span></h3>
                 <ul>
                     <li>Live voice chat in English, Hindi and Hinglish</li>
                     <li>Interrupt her any time, mid-sentence</li>
                     <li>Three voices to choose from</li>
                     <li>Remembers your name, preferences and chats</li>
                     <li>Offline backup brain when the internet is down</li>
+                    <li class="hl">Knows your voice — didi, bhaiya, aunty, uncle for others</li>
+                    <li class="hl">Names any song she hears, or plays the one you hum</li>
                 </ul>
             </div>
             <div class="feature">
@@ -372,7 +468,7 @@
             </div>
             <div class="feature">
                 <div class="ic">🏠</div>
-                <h3>Home <span class="new">NEW</span></h3>
+                <h3>Home</h3>
                 <ul>
                     <li>Washing machine: time left and a “done” alert</li>
                     <li>AC: on/off, mode and temperature</li>
@@ -415,6 +511,9 @@
         <div class="card">
             <input type="search" class="search" id="cmd-input" placeholder="Search commands (e.g. TV, AC, mail, quiz)" aria-label="Search commands">
             <div class="cmd-grid" id="cmd-grid">
+                <div class="cmd hl"><b>“Ye kaunsa gaana hai?”</b><span>Zoya listens to the song playing nearby and tells its name, singer and film.</span></div>
+                <div class="cmd hl"><b>“Main gaata hu, tum bajao”</b><span>Sing or hum 2–3 lines; Zoya finds that song and plays it (say “TV pe” for the TV).</span></div>
+                <div class="cmd hl"><b>“Main kaun hu?”</b><span>Zoya knows the owner's voice; others are called didi, bhaiya, aunty or uncle.</span></div>
                 <div class="cmd"><b>“Washing machine kitna time baki hai?”</b><span>Time left and when it stops. Zoya also tells you when the wash is done.</span></div>
                 <div class="cmd"><b>“AC 24 pe kar do”</b><span>Sets the AC temperature; also on/off and cool, dry or fan mode.</span></div>
                 <div class="cmd"><b>“Open Netflix on the TV”</b><span>Opens apps on Android TV / Google TV and Samsung TV.</span></div>
@@ -508,10 +607,93 @@
         </div>
     </section>
 
+    <!-- VERSIONS -->
+    <section id="versions">
+        <div class="section-header">
+            <h2>Every version of Zoya</h2>
+            <p>What each release added. Updating keeps your settings, logins and memory.</p>
+        </div>
+
+        <div class="vlist">
+                <article class="vcard latest">
+                    <div class="vtop"><h3>Zoya 2.2</h3><span class="vtag latest">Latest</span></div>
+                    <p class="vdate">November 2026</p>
+                    <p class="vhead">Zoya knows who is talking, and recognises songs — even when you just hum them.</p>
+                    <ul><li>Recognise my voice: didi, bhaiya, aunty, uncle for others</li><li>Song recognition: “Ye kaunsa gaana hai?”</li><li>Hum 2–3 lines → Zoya plays the song (PC or TV)</li></ul>
+                </article>
+                <article class="vcard">
+                    <div class="vtop"><h3>Zoya 2.1.1</h3><span class="vtag">Fix</span></div>
+                    <p class="vdate">November 2026</p>
+                    <p class="vhead">YouTube, Netflix and Spotify on Google / Android TVs work straight away again.</p>
+                    <ul><li>Cast apps open with no TV pop-up</li><li>Setup installs the TV libraries</li></ul>
+                </article>
+                <article class="vcard">
+                    <div class="vtop"><h3>Zoya 2.1</h3></div>
+                    <p class="vdate">November 2026</p>
+                    <p class="vhead">TV through Home Assistant, several phones, background Instagram and a file converter.</p>
+                    <ul><li>TV via Home Assistant, no pop-ups</li><li>Several phones by name, every message read</li><li>📸 Instagram on/off button</li><li>Convert any file format</li></ul>
+                </article>
+                <article class="vcard">
+                    <div class="vtop"><h3>Zoya 2.0</h3></div>
+                    <p class="vdate">November 2026</p>
+                    <p class="vhead">Washing machine and AC, change the Gemini key in Zoya, faster Full setup.</p>
+                    <ul><li>Washer, dryer and AC control</li><li>🔑 Change Gemini key in Settings</li><li>New AQ. keys accepted, taskbar icon</li></ul>
+                </article>
+                <article class="vcard">
+                    <div class="vtop"><h3>Zoya 1.1.0</h3><span class="vtag">First release</span></div>
+                    <p class="vdate">November 2026</p>
+                    <p class="vhead">The first public Zoya: phone, Gmail, meetings, smart home, screen agent and social helper.</p>
+                    <ul><li>Phone control and OTP to PC</li><li>Gmail, meeting notes, study tools</li><li>Screen agent, voice lock, backups</li><li>Standard and Full setups</li></ul>
+                </article>
+        </div>
+
+        <h3 class="vsub">Compare versions</h3>
+        <div class="vtable-wrap" role="region" aria-label="Feature comparison by version" tabindex="0">
+            <table class="vtable">
+                <thead><tr><th scope="col">Feature</th><th scope="col">1.1.0</th><th scope="col">2.0</th><th scope="col">2.1</th><th scope="col">2.1.1</th><th scope="col" class="cur">2.2<small>Latest</small></th></tr></thead>
+                <tbody>
+                    <tr class="grp"><th colspan="6">Talk and think</th></tr>
+                    <tr><th scope="row">Live voice chat in English, Hindi and Hinglish</th><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td class="cur"><span class="yes" aria-label="Yes">✓</span></td></tr>
+                    <tr><th scope="row">Offline backup brain (Full setup)</th><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td class="cur"><span class="yes" aria-label="Yes">✓</span></td></tr>
+                    <tr><th scope="row">Knows her creator — Tejas Munjal</th><td><span class="no" aria-label="No">✕</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td class="cur"><span class="yes" aria-label="Yes">✓</span></td></tr>
+                    <tr><th scope="row">Recognises your voice — didi, bhaiya, aunty, uncle for others <span class="new">NEW</span></th><td><span class="no" aria-label="No">✕</span></td><td><span class="no" aria-label="No">✕</span></td><td><span class="no" aria-label="No">✕</span></td><td><span class="no" aria-label="No">✕</span></td><td class="cur"><span class="yes" aria-label="Yes">✓</span></td></tr>
+                    <tr><th scope="row">Song recognition — names the song playing nearby <span class="new">NEW</span></th><td><span class="no" aria-label="No">✕</span></td><td><span class="no" aria-label="No">✕</span></td><td><span class="no" aria-label="No">✕</span></td><td><span class="no" aria-label="No">✕</span></td><td class="cur"><span class="yes" aria-label="Yes">✓</span></td></tr>
+                    <tr><th scope="row">Hum or sing 2–3 lines and Zoya plays that song <span class="new">NEW</span></th><td><span class="no" aria-label="No">✕</span></td><td><span class="no" aria-label="No">✕</span></td><td><span class="no" aria-label="No">✕</span></td><td><span class="no" aria-label="No">✕</span></td><td class="cur"><span class="yes" aria-label="Yes">✓</span></td></tr>
+                    <tr class="grp"><th colspan="6">PC and work</th></tr>
+                    <tr><th scope="row">Screen agent: opens apps, fills forms, works in Excel</th><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td class="cur"><span class="yes" aria-label="Yes">✓</span></td></tr>
+                    <tr><th scope="row">Meeting notes, quiz and flashcards from PDFs</th><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td class="cur"><span class="yes" aria-label="Yes">✓</span></td></tr>
+                    <tr><th scope="row">Up to 50 files at once</th><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td class="cur"><span class="yes" aria-label="Yes">✓</span></td></tr>
+                    <tr><th scope="row">File converter: PNG → JPG, MP4 → MKV, Word → PDF</th><td><span class="no" aria-label="No">✕</span></td><td><span class="no" aria-label="No">✕</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td class="cur"><span class="yes" aria-label="Yes">✓</span></td></tr>
+                    <tr class="grp"><th colspan="6">Phone and social</th></tr>
+                    <tr><th scope="row">Phone control: OTP to PC, find my phone, notifications</th><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td class="cur"><span class="yes" aria-label="Yes">✓</span></td></tr>
+                    <tr><th scope="row">Gmail: who sent each mail, replies on request</th><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td class="cur"><span class="yes" aria-label="Yes">✓</span></td></tr>
+                    <tr><th scope="row">Instagram, Facebook and WhatsApp messages</th><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td class="cur"><span class="yes" aria-label="Yes">✓</span></td></tr>
+                    <tr><th scope="row">Several phones at once, each by name</th><td><span class="no" aria-label="No">✕</span></td><td><span class="no" aria-label="No">✕</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td class="cur"><span class="yes" aria-label="Yes">✓</span></td></tr>
+                    <tr><th scope="row">Every new message read out</th><td><span class="no" aria-label="No">✕</span></td><td><span class="no" aria-label="No">✕</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td class="cur"><span class="yes" aria-label="Yes">✓</span></td></tr>
+                    <tr><th scope="row">Instagram messages in the background + 📸 on/off button</th><td><span class="no" aria-label="No">✕</span></td><td><span class="no" aria-label="No">✕</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td class="cur"><span class="yes" aria-label="Yes">✓</span></td></tr>
+                    <tr class="grp"><th colspan="6">Home and TV</th></tr>
+                    <tr><th scope="row">Smart lights and plugs</th><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td class="cur"><span class="yes" aria-label="Yes">✓</span></td></tr>
+                    <tr><th scope="row">Android / Google TV and Samsung TV control</th><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td class="cur"><span class="yes" aria-label="Yes">✓</span></td></tr>
+                    <tr><th scope="row">Washing machine, dryer and AC</th><td><span class="no" aria-label="No">✕</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td class="cur"><span class="yes" aria-label="Yes">✓</span></td></tr>
+                    <tr><th scope="row">TV through Home Assistant — no “Allow?” pop-ups</th><td><span class="no" aria-label="No">✕</span></td><td><span class="no" aria-label="No">✕</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td class="cur"><span class="yes" aria-label="Yes">✓</span></td></tr>
+                    <tr><th scope="row">Setup installs the TV libraries (Cast, Samsung, LG)</th><td><span class="no" aria-label="No">✕</span></td><td><span class="no" aria-label="No">✕</span></td><td><span class="no" aria-label="No">✕</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td class="cur"><span class="yes" aria-label="Yes">✓</span></td></tr>
+                    <tr class="grp"><th colspan="6">Setup and safety</th></tr>
+                    <tr><th scope="row">Voice lock, encrypted backup, secure boxes for passwords</th><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td class="cur"><span class="yes" aria-label="Yes">✓</span></td></tr>
+                    <tr><th scope="row">Change the Gemini API key inside Zoya</th><td><span class="no" aria-label="No">✕</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td class="cur"><span class="yes" aria-label="Yes">✓</span></td></tr>
+                    <tr><th scope="row">Every Gemini key format accepted (new AQ. keys)</th><td><span class="no" aria-label="No">✕</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td class="cur"><span class="yes" aria-label="Yes">✓</span></td></tr>
+                    <tr><th scope="row">Zoya icon in the taskbar</th><td><span class="no" aria-label="No">✕</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td class="cur"><span class="yes" aria-label="Yes">✓</span></td></tr>
+                    <tr><th scope="row">Much faster Full setup</th><td><span class="no" aria-label="No">✕</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td><span class="yes" aria-label="Yes">✓</span></td><td class="cur"><span class="yes" aria-label="Yes">✓</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="vnote"><span class="yes">✓</span> included &nbsp;·&nbsp; <span class="no">✕</span> not in that version &nbsp;·&nbsp;
+            Older setups and full release notes: <a href="https://github.com/Pytstrt/ZOYA-INSTALLER/releases" target="_blank" rel="noopener">GitHub releases</a></p>
+    </section>
+
     <!-- DOWNLOADS -->
     <section id="downloads">
         <div class="section-header">
-            <h2>Download Zoya 2.1</h2>
+            <h2>Download Zoya 2.2</h2>
             <p>Pick one. You can run the Full setup later to add the offline parts.</p>
         </div>
 
@@ -529,7 +711,7 @@
                     <li>Python and every package, installed for you</li>
                     <li>Gemini brain (online)</li>
                 </ul>
-                <p class="facts">Zoya-Setup-2.1.1.exe · installer ~51 MB · downloads 1.5–2 GB · 6 GB free space</p>
+                <p class="facts">Zoya-Setup-2.2.exe · installer ~51 MB · downloads 1.5–2 GB · 6 GB free space</p>
                 <a class="btn-main js-download" data-package="standard" href="#downloads">Download Standard</a>
                 <p class="sha" data-sha="standard"></p>
                 <p class="soon" data-soon="standard">Download link coming soon.</p>
@@ -542,7 +724,7 @@
                     <li>Offline brain (Ollama + one model sized to your RAM)</li>
                     <li>Offline speech, voice ID and FFmpeg</li>
                 </ul>
-                <p class="facts">Zoya-Setup-2.1.1-Full.exe · downloads 5–6 GB · 11 GB free space · 8 GB RAM</p>
+                <p class="facts">Zoya-Setup-2.2-Full.exe · downloads 5–6 GB · 11 GB free space · 8 GB RAM</p>
                 <a class="btn-main js-download" data-package="full" href="#downloads">Download Full</a>
                 <p class="sha" data-sha="full"></p>
                 <p class="soon" data-soon="full">Download link coming soon.</p>
@@ -594,7 +776,7 @@
     </main>
 
     <footer>
-        <p><strong>Zoya</strong> 2.1 © 2026 — designed and developed by <strong>Tejas Munjal</strong>.</p>
+        <p><strong>Zoya</strong> 2.2 © 2026 — designed and developed by <strong>Tejas Munjal</strong>.</p>
         <p>Free for personal use under <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>. Gemini is a trademark of Google LLC; Zoya is not affiliated with Google.</p>
     </footer>
 </div>
@@ -602,12 +784,12 @@
 <script>
     /* ── EDIT HERE ───────────────────────────────────────────────────────────
        Paste the real download links (GitHub Releases is best; Google Drive works too).
-       sha256: run  certutil -hashfile Zoya-Setup-2.1.1.exe SHA256  and paste the result.
-       The links work once GitHub release "v2.1.1" has these two files attached.
+       sha256: run  certutil -hashfile Zoya-Setup-2.2.exe SHA256  and paste the result.
+       The links work once GitHub release "v2.2" has these two files attached.
        The thank-you page opens from the installer itself when setup finishes.        */
     const DOWNLOADS = {
-        standard: { url: "https://github.com/Pytstrt/ZOYA-INSTALLER/releases/download/v2.1.1/Zoya-Setup-2.1.1.exe", sha256: "b68a43bfcbf4b98a2c7206b0fa56e84f06ba4235d0d1a1935046ea4fb66da2fe" },
-        full:     { url: "https://github.com/Pytstrt/ZOYA-INSTALLER/releases/download/v2.1.1/Zoya-Setup-2.1.1-Full.exe", sha256: "75f71d08fdab28ba8fc1775fdc5144cc1741dcdfb696d6a978a52e7264ae1a12" }
+        standard: { url: "https://github.com/Pytstrt/ZOYA-INSTALLER/releases/download/v2.2/Zoya-Setup-2.2.exe", sha256: "12b51d1aea6348876b7b1f85cf4f8c6e6061ec1d394ebf308009278ac02e0c88" },
+        full:     { url: "https://github.com/Pytstrt/ZOYA-INSTALLER/releases/download/v2.2/Zoya-Setup-2.2-Full.exe", sha256: "eb3dd1e15550db2f0b11a0e0bd1511eda84d29fb285d34325c8976464b2c5dc6" }
     };
     const THANK_YOU_PAGE = "";   // the installer opens the thank-you page after setup
     /* ─────────────────────────────────────────────────────────────────────── */
