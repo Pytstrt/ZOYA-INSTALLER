@@ -1,0 +1,16 @@
+{
+  "version": "4.0",
+  "date": "2026-11-11",
+  "zip": "https://github.com/Pytstrt/ZOYA-INSTALLER/releases/download/v4.0/zoya-update-4.0.zip",
+  "sha256": "e08f06efe4eda800a19aae0a4daf9bdb10c321d7b0124f90653ae02d737c60f0",
+  "size": 7970139,
+  "notes": [
+    "Automatic updates",
+    "Your data never goes",
+    "Safe by design",
+    "Zoya restarts by herself and tells you what's new",
+    "Continue with Google",
+    "Zoya's user list (Firebase) keeps only email, name, Zoya version, Windows version, city/region/country and\u2026"
+  ],
+  "signature": "xelRm/3W2BgrfC/Lm3De5vdOKT9GDIvYgLmLhS/S4TMimxzn7HZozlz0M65bHFgYIzHyaRQt/PtTL3XJMbrrBw=="
+}
