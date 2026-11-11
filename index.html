@@ -214,6 +214,39 @@
             .vtable .yes, .vtable .no { width: 20px; height: 20px; font-size: 11px; }
             .vtable .new { display: none; }
         }
+        /* ALL VERSIONS TABLE */
+        .allv { margin: 28px 0 36px; }
+        .allv-head h3 { font-size: 22px; margin-bottom: 6px; }
+        .allv-head p { color: var(--text-muted); font-size: 15px; margin-bottom: 16px; }
+        .allv-wrap { border: 1px solid var(--glass-border); border-radius: var(--radius-md); background: var(--bg-card); overflow: hidden; }
+        .allv-table { width: 100%; min-width: 0; border-collapse: collapse; font-size: 14px; }
+        .allv-table th, .allv-table td { padding: 13px 16px; border-bottom: 1px solid var(--glass-border); text-align: left; vertical-align: middle; }
+        .allv-table tbody tr:last-child td { border-bottom: 0; }
+        .allv-table thead th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); background: rgba(255, 255, 255, 0.02); }
+        .allv-table .ver { font-weight: 800; font-size: 16px; white-space: nowrap; }
+        .allv-table .ver small { display: inline-block; margin-left: 8px; font-size: 10px; font-weight: 800; letter-spacing: 0.6px; text-transform: uppercase; color: #000; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-pink)); border-radius: 20px; padding: 2px 8px; vertical-align: middle; }
+        .allv-table .date { color: var(--text-muted); white-space: nowrap; }
+        .allv-table .what { color: var(--text-muted); }
+        .allv-table tr.latest td { background: rgba(127, 0, 255, 0.10); }
+        .allv-table tr.latest td:first-child { box-shadow: inset 3px 0 0 var(--accent-pink); }
+        .dl { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 10px; font-weight: 700; font-size: 13px; text-decoration: none; white-space: nowrap;
+              color: #000; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue)); }
+        .dl.full { background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink)); color: #fff; }
+        .dl:hover { filter: brightness(1.1); }
+        .dl.off { background: transparent; color: var(--text-muted); border: 1px dashed var(--glass-border); cursor: default; font-weight: 500; }
+        @media (max-width: 760px) {
+            .allv-table thead { display: none; }
+            .allv-table, .allv-table tbody, .allv-table tr, .allv-table td { display: block; width: auto; box-sizing: border-box; }
+            .allv-table td.ver, .allv-table td.date { display: inline-block; }
+            .allv-table td.date { margin-left: 8px; font-size: 13px; }
+            .allv-table tr { padding: 14px 16px; border-bottom: 1px solid var(--glass-border); }
+            .allv-table tbody tr:last-child { border-bottom: 0; }
+            .allv-table td { border: 0; padding: 3px 0; }
+            .allv-table tr.latest td { background: transparent; }
+            .allv-table tr.latest td:first-child { box-shadow: none; }
+            .allv-table tr.latest { background: rgba(127, 0, 255, 0.10); box-shadow: inset 3px 0 0 var(--accent-pink); }
+            .allv-table td.dlc { display: inline-block; width: auto; margin: 8px 8px 0 0; }
+        }
         /* NEW IN 2.2 highlight */
         .spot { position: relative; margin-top: 56px; padding: 34px; border-radius: var(--radius-lg); border: 1px solid transparent;
             background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
@@ -702,6 +735,21 @@
             Windows may show “Windows protected your PC” because the installer is new — click <strong>More info → Run anyway</strong>.
         </div>
 
+        <div class="allv">
+            <div class="allv-head">
+                <h3>All versions — install any one</h3>
+                <p>Every Zoya release, newest first. The latest one is recommended; older versions are here if you need one.</p>
+            </div>
+            <div class="allv-wrap">
+                <table class="allv-table">
+                    <thead><tr><th scope="col">Version</th><th scope="col">Released</th><th scope="col">What's new</th><th scope="col">Standard</th><th scope="col">Full</th></tr></thead>
+                    <tbody id="allv-body"></tbody>
+                </table>
+            </div>
+            <noscript><p class="vnote">Turn on JavaScript, or get any version from <a href="https://github.com/Pytstrt/ZOYA-INSTALLER/releases">GitHub releases</a>.</p></noscript>
+            <p class="vnote">Standard = smaller, needs internet · Full = adds the offline brain, speech and voice ID. Installing another version over Zoya keeps your settings, logins and memory.</p>
+        </div>
+
         <div class="pkg-grid">
             <div class="pkg">
                 <h3>Standard</h3>
@@ -792,6 +840,36 @@
         full:     { url: "https://github.com/Pytstrt/ZOYA-INSTALLER/releases/download/v2.2/Zoya-Setup-2.2-Full.exe", sha256: "eb3dd1e15550db2f0b11a0e0bd1511eda84d29fb285d34325c8976464b2c5dc6" }
     };
     const THANK_YOU_PAGE = "";   // the installer opens the thank-you page after setup
+
+    /* ALL VERSIONS table (Download section). Newest first.
+       To add a release: put a new line at the top. ready: false shows "Not uploaded yet"
+       until that GitHub release has its two .exe files — then set it to true.          */
+    const GH = "https://github.com/Pytstrt/ZOYA-INSTALLER/releases/download/";
+    const ALL_VERSIONS = [
+        { v: "2.2",   date: "Nov 2026", latest: true, ready: true,  what: "Recognises your voice · song recognition · hum to play" },
+        { v: "2.1.1", date: "Nov 2026", ready: true,  what: "Fix: YouTube, Netflix, Spotify on Google TV with no pop-up" },
+        { v: "2.1",   date: "Nov 2026", ready: true,  what: "TV via Home Assistant · several phones · file converter" },
+        { v: "2.0",   date: "Nov 2026", ready: true,  what: "Washing machine and AC · change Gemini key in Zoya" },
+        { v: "1.1.0", date: "Nov 2026", ready: true,  what: "First release: phone, Gmail, meetings, screen agent" }
+    ];
+    (function allVersions() {
+        const body = document.getElementById("allv-body");
+        if (!body) return;
+        const link = (r, full) => {
+            const label = full ? "Full" : "Standard";
+            if (!r.ready) return `<span class="dl off">Not uploaded yet</span>`;
+            const file = `Zoya-Setup-${r.v}${full ? "-Full" : ""}.exe`;
+            return `<a class="dl${full ? " full" : ""}" href="${GH}v${r.v}/${file}" download="${file}" rel="nofollow" title="Download ${file}">⬇ ${label}</a>`;
+        };
+        body.innerHTML = ALL_VERSIONS.map(r => `
+            <tr${r.latest ? ' class="latest"' : ""}>
+                <td class="ver">Zoya ${r.v}${r.latest ? "<small>Latest</small>" : ""}</td>
+                <td class="date">${r.date}</td>
+                <td class="what">${r.what}</td>
+                <td class="dlc">${link(r, false)}</td>
+                <td class="dlc">${link(r, true)}</td>
+            </tr>`).join("");
+    })();
     /* ─────────────────────────────────────────────────────────────────────── */
 
     // Download buttons: real file when a link is set, otherwise a clear "coming soon".
